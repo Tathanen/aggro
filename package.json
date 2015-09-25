@@ -9,6 +9,8 @@
     "url": "https://github.com/Tathanen/aggro/issues"
   },
   "homepage": "https://github.com/Tathanen/aggro",
+  "main": "toolbar.js",
+  "version": "0.1.0",
   "scripts": {
     "start": "npm install && bower install && grunt && node server",
     "start-mocks": "npm install && bower install && grunt --mocks && node server",
