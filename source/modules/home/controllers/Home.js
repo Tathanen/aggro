@@ -20,7 +20,7 @@ angular.module( "Home" )
                 {
                     console.log( "Spark logged in", body );
 
-                    Spark.publishEvent( "status", {} );
+                    Spark.publishEvent( "roomStatus", {} );
 
                     Spark.onEvent( "occupied", function ()
                     {
