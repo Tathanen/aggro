@@ -20,11 +20,14 @@ angular.module( "Home" )
                 {
                     console.log( "Spark logged in", body );
 
+                    Spark.publishEvent( "status", {} );
+
                     Spark.onEvent( "occupied", function ()
                     {
                         $rootScope.$apply( function ()
                         {
-                            ctrl.roomStatus = "Occupied";
+                            ctrl.roomStatus = "occupied";
+                            ctrl.flavor = "room is occupied";
                             $rootScope.$broadcast( "monitor.updated", moment().format( "LTS" ) );
                         } );
                     } );
@@ -33,7 +36,8 @@ angular.module( "Home" )
                     {
                         $rootScope.$apply( function ()
                         {
-                            ctrl.roomStatus = "Empty";
+                            ctrl.roomStatus = "empty";
+                            ctrl.flavor = "room is empty";
                             $rootScope.$broadcast( "monitor.updated", moment().format( "LTS" ) );
                         } );
                     } );
@@ -42,7 +46,8 @@ angular.module( "Home" )
         }
         else
         {
-            ctrl.error = "Authentication not supplied";
+            ctrl.roomStatus = "error";
+            ctrl.flavor = "authentication not supplied";
         }
 
     }

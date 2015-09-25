@@ -1,3 +1,9 @@
-Status: {{ home.roomStatus ? home.roomStatus : 'unknown' }}
+<section class="status" data-ng-class="home.roomStatus">
 
-<span data-ng-if="home.error" data-ng-bind="home.error"></span>
+    <span class="waiting fa fa-question" data-ng-if="!home.roomStatus"></span>
+
+    <span class="current fa" data-ng-class="{ 'fa-hand-paper-o': home.roomStatus === 'occupied', 'fa-thumbs-o-up': home.roomStatus === 'empty', 'fa-times': home.roomStatus === 'error' }"></span>
+
+    <div class="flavor" data-ng-bind="home.flavor"></div>
+
+</section>

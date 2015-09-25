@@ -5,8 +5,8 @@ var menubar = require( "menubar" );
 var mb = menubar( {
     dir: process.cwd() + "/build",
     icon: process.cwd() + "/build/favicon/favicon.png",
-    width: 300,
-    height: 400
+    width: 260,
+    height: 370
 } );
 
 mb.on( "ready", function ()

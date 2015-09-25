@@ -4,15 +4,19 @@
 
 /* -- Variables */
 
-@light:  #FFFFFF;
-@dark:   #333333;
-@brand:  #006969;
-@accent: #C3E4B5;
-@gray:   #DDDDDD;
+@light:    #FFFFFF;
+@dark:     #333333;
+@brand:    #006969;
+@accent:   #C3E4B5;
+@gray:     #DDDDDD;
+@positive: #12B65A;
+@negative: #ED5A33;
 
 @font-body: "Source Sans Pro", Arial, Helvetica, sans-serif;
 
 /* -- Global */
+
+@import "source/modules/_app/styles/fonts.less";
 
 * {
     box-sizing: border-box;
@@ -22,7 +26,7 @@ body {
 
     position: relative;
     height: 100vh;
-    padding: 50px 0;
+    padding: 40px 0 32px;
     overflow: auto;
     font-family: @font-body;
     color: @dark;
@@ -32,14 +36,17 @@ body {
         left: 0;
         top: 0;
         width: 100%;
-        padding: 10px 15px;
+        height: 40px;
+        padding: 0 15px;
         background-color: @brand;
+        text-align: center;
+        line-height: 40px;
         font-size: 18px;
         color: @light;
     }
 
     & > main {
-        padding: 0 15px;
+        height: 100%;
     }
 
     & > footer {
@@ -47,8 +54,11 @@ body {
         left: 0;
         bottom: 0;
         width: 100%;
-        padding: 13px 15px;
+        height: 40px;
+        padding: 0 15px;
         background-color: @gray;
+        text-align: center;
+        line-height: 40px;
         font-size: 14px;
     }
 

@@ -22,8 +22,8 @@
         <main data-ng-view></main>
 
         <footer>
-            <span data-ng-if="!site.updated">Checking status...</span>
-            <span data-ng-if="site.updated">Updated at <span data-ng-bind="site.updated"></span></span>
+            <span data-ng-if="!site.updated"><i class="fa fa-refresh fa-spin"></i> Waiting for status...</span>
+            <span data-ng-if="site.updated"><span data-ng-bind="'Updated at ' + site.updated"></span></span>
         </footer>
 
         <script>
