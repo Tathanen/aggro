@@ -1,0 +1,32 @@
+image: docker.vokal.io/web-testing
+env:
+    - AWS_ACCESS_KEY=$$awsAccessKey
+    - AWS_SECRET_KEY=$$awsSecretKey
+    - BOWER_LOGIN=$$bowerLogin
+    - BOWER_OAUTH=$$bowerOauth
+    - BROWSERSTACK_USER=$$browserstackUser
+    - BROWSERSTACK_KEY=$$browserstackKey
+    - CVR_TOKEN=$$cvrToken
+script:
+    - echo "machine github.com" > ~/.netrc
+    - echo "login $BOWER_LOGIN" >> ~/.netrc
+    - echo "password $BOWER_OAUTH" >> ~/.netrc
+    - git config --global url."https://github".insteadOf git://github
+    - npm install
+    - bower --allow-root install
+    - chmod +x run-build.sh
+    - ./run-build.sh
+# TODO: uncomment when real non-seed project, add --mocks=1 if you want drone to deploy to dev w/mocks
+# deploy:
+#     bash:
+#         script:
+#             - grunt deploydev --aws-access-key-id=$AWS_ACCESS_KEY --aws-secret-access-key=$AWS_SECRET_KEY --gitver=$(git rev-parse --short HEAD)
+notify:
+    email:
+        recipients:
+            - jarrett.widman@vokal.io # TODO: swap to the lead engineer on the project
+    webhook:
+        urls:
+            - https://dronebot.vokal.io/hook
+        on_success: true
+        on_failure: true

@@ -1,0 +1,72 @@
+default:
+  - envLocal
+  - buildcore
+
+buildcore:
+  - clean:build
+  - concat:scripts
+  - concat:angular
+  - concat:components
+  - less
+  - postcss
+  - copy
+  - svg_sprite
+  - svgmin
+  - includeSource
+  - ejs
+  - ngtemplates
+  - replace
+
+test:
+  - envLocal
+  - envUseSource
+  - buildcore
+  - instrument
+  - rev
+  - protractor_coverage:local
+  - envDontUseSource
+  - buildcore
+  - makeReport
+  - jshint:dev
+
+teststack:
+  - envLocal
+  - envUseSource
+  - buildcore
+  - jshint:deploy
+  - instrument
+  - rev
+  - localstack
+  - protractor_coverage:stack
+  - envDontUseSource
+  - buildcore
+  - makeReport
+
+rev:
+  - filerev
+  - filerev_replace
+
+deploydev:
+  - envDev
+  - deploy
+
+deploystaging:
+  - envStaging
+  - deploy
+
+deployprod:
+  - envProd
+  - envRobotsIndex
+  - deploy
+
+deploy:
+  - envUseDist
+  - clean
+  - buildcore
+  - clean:modules
+  - babel
+  - uglify
+  - concat:dist
+  - rev
+  - s3
+  - cloudfront

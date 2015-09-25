@@ -1,0 +1,59 @@
+/* Application Styles */
+
+@import (inline) "source/components/css-reset/reset.css";
+
+/* -- Variables */
+
+@light:  #FFFFFF;
+@dark:   #333333;
+@brand:  #006969;
+@accent: #C3E4B5;
+@gray:   #DDDDDD;
+
+@font-body: "Source Sans Pro", Arial, Helvetica, sans-serif;
+
+/* -- Global */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    position: relative;
+    height: 100vh;
+    padding: 50px 0;
+    overflow: auto;
+    font-family: @font-body;
+    color: @dark;
+
+    & > header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 10px 15px;
+        background-color: @brand;
+        font-size: 18px;
+        color: @light;
+    }
+
+    & > main {
+        padding: 0 15px;
+    }
+
+    & > footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 13px 15px;
+        background-color: @gray;
+        font-size: 14px;
+    }
+
+}
+
+/* -- Modules */
+
+@import "source/modules/home/styles/home.less";

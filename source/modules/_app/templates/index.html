@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en-US" data-ng-app="App" data-ng-controller="Site as site">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Room Monitor</title>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <link rel="stylesheet" href="project.css">
+
+    </head>
+
+    <body>
+
+        <header>
+            Room Monitor
+        </header>
+
+        <main data-ng-view></main>
+
+        <footer>
+            <span data-ng-if="!site.updated">Checking status...</span>
+            <span data-ng-if="site.updated">Updated at <span data-ng-bind="site.updated"></span></span>
+        </footer>
+
+        <script>
+            "use strict";
+            var humps = require( "humps" );
+            var Spark = require( "spark" );
+            var commandLineArgs = require( "command-line-args" );
+        </script>
+
+        <% if( useDist ) { %>
+        <script src="dist.js" defer></script>
+        <% } else { %>
+        <script src="angular.js"></script>
+        <script src="components.js"></script>
+        <% if( useSource ) { %>
+        <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+        <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+        <% } else { %>
+        <script src="project.js"></script>
+        <% } %>
+        <script src="templates.js"></script>
+        <% } %>
+
+    </body>
+
+</html>

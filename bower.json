@@ -1,0 +1,23 @@
+{
+  "name": "aggro",
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-route": "1.4.x",
+    "angular-touch": "1.4.x",
+    "angular-sanitize": "1.4.x",
+    "angular-messages": "1.4.x",
+    "angular-animate": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "compless": "https://github.com/neoascetic/compless.git",
+    "css-reset": "https://github.com/vokal/css-reset.git#1.x",
+    "html5shiv": "3.7.x",
+    "vokal-ng-api": "https://github.com/vokal/vokal-ng-api.git#4.x",
+    "moment": "~2.10.6"
+  },
+  "available": {
+    "jquery": "^2.1.x"
+  },
+  "resolutions": {
+    "angular": "1.4.x"
+  }
+}
